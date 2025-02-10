@@ -1,0 +1,20 @@
+Redux (State Management Lib)
+*JS => State Management Lib
+*State Management => useState, useRef, useContext (React build in)
+
+Redux use for
+1. API fetching
+2. User Info
+
+Ref : https://redux.js.org/
+
+# Redux structure
+UI > User Event > Action > Reducer > Store > State
+Date Carry => Action (type,payload{data})
+
+https://api.themoviedb.org/3/person/popular?api_key=8456598f57379ec11a528c54f320d481
+
+
+https://api.themoviedb.org/3/search/movie?query=SEARCH_DATA&api_key=8456598f57379ec11a528c54f320d481
+
+https://api.themoviedb.org/3/search/movie?query='flash'&api_key=8456598f57379ec11a528c54f320d481
