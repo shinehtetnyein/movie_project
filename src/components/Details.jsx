@@ -12,6 +12,7 @@ const Details = () => {
     const res = await api.get(`movie/${movieId}?api_key=${api_key}`);
     dispatch(selectedMovie(res.data));
   };
+  // fetching
 
   useEffect(() => {
     movieDetails();
