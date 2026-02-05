@@ -4,12 +4,11 @@ import { useSelector } from "react-redux";
 
 const Movies = () => {
   const movies = useSelector((state) => state.movies.movies);
-  const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const moviesPerPage = 8;
 
   const filteredMovies = movies.filter((movie) =>
-    movie.original_title.toLowerCase().includes(searchTerm.toLowerCase())
+    movie.original_title.toLowerCase().includes("")
   );
 
   const indexOfLastMovie = currentPage * moviesPerPage;

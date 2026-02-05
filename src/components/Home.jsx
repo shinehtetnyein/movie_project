@@ -11,6 +11,7 @@ const Home = () => {
     // console.log(res.data.results);
   };
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     getMovies();
   }, []);
   return (

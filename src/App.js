@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import { Route, Router, Routes } from "react-router";
+import { Route, Routes } from "react-router";
 import FileNofFound from "./components/FileNofFound";
 import Details from "./components/Details";
 const App = () => {

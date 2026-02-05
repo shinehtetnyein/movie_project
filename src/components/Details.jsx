@@ -1,4 +1,3 @@
-import { Card } from "flowbite-react";
 import React, { useEffect } from "react";
 import { api, api_key } from "../api";
 import { useNavigate, useParams } from "react-router-dom";
@@ -13,13 +12,10 @@ const Details = () => {
     const res = await api.get(`movie/${movieId}?api_key=${api_key}`);
     dispatch(selectedMovie(res.data));
   };
-  //fetching movie details on component mount
+
   useEffect(() => {
-    if (movieId) {
-      movieDetails();
-    }
-    return () => dispatch(removeSelectedMovie({}));
-  }, [movieId, dispatch]);
+    movieDetails();
+  }, [movieDetails]);
 
   const movie = useSelector((state) => state.movies.movie);
   const navigate = useNavigate();
@@ -36,7 +32,7 @@ const Details = () => {
       {movie && (
         <div className="flex flex-col md:flex-row mt-8 gap-8 items-center md:items-start">
           <img
-            className=" md:w-1/3 lg:w-1/4 rounded-lg shadow-lg"
+            className="w-full md:w-1/3 lg:w-1/4 rounded-lg shadow-lg"
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt={movie.original_title}
           />
