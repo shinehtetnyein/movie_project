@@ -1,6 +1,6 @@
 import { Navbar, TextInput } from "flowbite-react";
 import React, { useRef } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { api, api_key } from "../api";
 import { useDispatch } from "react-redux";
 import { fetchMovies } from "../redux/action/movies";
