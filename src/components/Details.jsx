@@ -13,7 +13,7 @@ const Details = () => {
     const res = await api.get(`movie/${movieId}?api_key=${api_key}`);
     dispatch(selectedMovie(res.data));
   };
-  //fetchs
+  //fetching movie details on component mount
   useEffect(() => {
     if (movieId) {
       movieDetails();
