@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { api, api_key } from "../api";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { removeSelectedMovie, selectedMovie } from "../redux/action/movies";
+import { selectedMovie } from "../redux/action/movies";
 
 const Details = () => {
   const { movieId } = useParams();
