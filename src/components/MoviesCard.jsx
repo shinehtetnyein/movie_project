@@ -1,34 +1,32 @@
 import React from "react";
-import { Link } from "react-router";
-import { Card } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 const MoviesCard = ({ movie }) => {
-//   console.log(movie);
   return (
-    <div>
+    <div className="max-w-sm bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
       <Link to={`/movies/details/${movie.id}`}>
-        <div className="max-w-sm">
-          <Card
-            imgAlt="Meaningful alt text for an image that is not purely decorative"
-            imgSrc={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-          >
-            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {movie.original_title}
-            </h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              {movie.overview.slice(0, 120) + " ....."}
-            </p>
-            <p className="text-white">
-              <span className="p-1 mt-2 me-2 bg-orange-500 rounded-xl">
-                <i className="fa-solid fa-star me-1"></i>
-                {movie.vote_average}
-              </span>
-              <span className="p-1 ms-3 bg-gray-500 rounded-xl px-2">
-                <i class="fa-solid fa-calendar-days me-1"></i>
-                {movie.release_date}
-              </span>
-            </p>
-          </Card>
+        <img
+          className="rounded-t-lg w-full h-64 object-cover"
+          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          alt={movie.original_title}
+        />
+        <div className="p-4">
+          <h5 className="text-xl font-semibold text-gray-800 truncate">
+            {movie.original_title}
+          </h5>
+          <p className="text-sm text-gray-600 mt-2">
+            {movie.overview.slice(0, 100)}...
+          </p>
+          <div className="flex items-center justify-between mt-4">
+            <span className="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded">
+              <i className="fa-solid fa-star mr-1"></i>
+              {movie.vote_average}
+            </span>
+            <span className="bg-gray-200 text-gray-800 text-xs font-medium px-2 py-1 rounded">
+              <i className="fa-solid fa-calendar-days mr-1"></i>
+              {movie.release_date}
+            </span>
+          </div>
         </div>
       </Link>
     </div>
