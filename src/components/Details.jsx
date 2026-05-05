@@ -22,7 +22,7 @@ const Details = () => {
 
   useEffect(() => {
     fetchMovieDetails();
-  }, [fetchMovieDetails]);
+  }, []);
 
   if (!movie) return <div className="text-center mt-10">Loading...</div>;
 

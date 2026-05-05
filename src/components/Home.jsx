@@ -21,7 +21,7 @@ const Home = () => {
 
   useEffect(() => {
     getMovies();
-  }, [getMovies]);
+  }, []);
 
   return (
     <div>
