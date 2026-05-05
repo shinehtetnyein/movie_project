@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import Movies from "./Movies";
 import { api, api_key } from "../api";
 import { useDispatch } from "react-redux";
@@ -7,7 +7,7 @@ import { fetchMovies, setLoading, setError } from "../redux/action/movies";
 const Home = () => {
   const dispatch = useDispatch();
   
-  const getMovies = async () => {
+  const getMovies = useCallback(async () => {
     try {
       dispatch(setLoading(true));
       const res = await api.get(`movie/popular?api_key=${api_key}`);
@@ -17,11 +17,11 @@ const Home = () => {
       dispatch(setError(error.message));
       console.error("Error fetching movies:", error);
     }
-  };
+  }, [dispatch]);
 
   useEffect(() => {
     getMovies();
-  }, []);
+  }, [getMovies]);
 
   return (
     <div>
