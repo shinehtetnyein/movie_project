@@ -21,3 +21,17 @@ export const removeSelectedMovie = (movie) => {
     payload: movie,
   };
 };
+
+export const setLoading = (loading) => {
+  return {
+    type: actionType.SET_LOADING,
+    payload: loading,
+  };
+};
+
+export const setError = (error) => {
+  return {
+    type: actionType.SET_ERROR,
+    payload: error,
+  };
+};

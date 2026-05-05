@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import MoviesCard from "./MoviesCard";
+import SkeletonLoader from "./SkeletonLoader";
 import { useSelector } from "react-redux";
 
 const Movies = () => {
   const movies = useSelector((state) => state.movies.movies);
+  const loading = useSelector((state) => state.movies.loading);
   const [currentPage, setCurrentPage] = useState(1);
   const moviesPerPage = 8;
 
@@ -16,6 +18,19 @@ const Movies = () => {
   const currentMovies = filteredMovies.slice(indexOfFirstMovie, indexOfLastMovie);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  // Show skeleton loaders while loading
+  if (loading && movies.length === 0) {
+    return (
+      <div className="container mx-auto p-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1 gap-4">
+          {Array.from({ length: 8 }).map((_, index) => (
+            <SkeletonLoader key={index} />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto p-4">

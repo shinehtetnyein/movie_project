@@ -2,17 +2,27 @@ import React, { useEffect } from "react";
 import Movies from "./Movies";
 import { api, api_key } from "../api";
 import { useDispatch } from "react-redux";
-import { fetchMovies } from "../redux/action/movies";
+import { fetchMovies, setLoading, setError } from "../redux/action/movies";
+
 const Home = () => {
   const dispatch = useDispatch();
+  
   const getMovies = async () => {
-    const res = await api.get(`movie/popular?api_key=${api_key}`);
-    dispatch(fetchMovies(res.data.results));
-    // console.log(res.data.results);
+    try {
+      dispatch(setLoading(true));
+      const res = await api.get(`movie/popular?api_key=${api_key}`);
+      dispatch(fetchMovies(res.data.results));
+      dispatch(setError(null));
+    } catch (error) {
+      dispatch(setError(error.message));
+      console.error("Error fetching movies:", error);
+    }
   };
+
   useEffect(() => {
     getMovies();
   }, []);
+
   return (
     <div>
       <Movies />
